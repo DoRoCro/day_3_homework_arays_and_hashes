@@ -25,6 +25,9 @@ for x in lines
   end
 end
 
+# or after finding the index function...
+lines.index('Haymarket')
+
 # 5. Add 'Airport' to the start of the array
   lines.unshift("Airport")
 puts lines
