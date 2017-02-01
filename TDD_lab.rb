@@ -30,11 +30,12 @@ end
 
 def gimme_capitals(a_hash)
   return_array = Array.new
-  for x in a_hash
+  for x in a_hash     # this seems to give an array x = [symbol, {hash}]
     # puts x
     # puts "==="
     # puts [x.first]
     return_array << a_hash[x.first][:capital]
   end
+  # puts return_array
   return return_array
 end
