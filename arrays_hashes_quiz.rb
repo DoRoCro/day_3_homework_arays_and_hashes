@@ -8,11 +8,27 @@ puts lines.length()
 # 2. Return 'Edinburgh Park' from the array
 puts lines[1]
 
+
 # 3. How many ways can we return 'Princes Street' from the array?
 puts lines.last
 puts lines[4]
 # puts lines.pop   
 # dummy = lines.shift(4) # destructive, returns what you extract leaving behind 'Princes St'
+# missed to following options
+lines[-1]
+for place in lines
+  if place == 'Princes'narket
+    return place
+  end
+end
+
+counter=0
+while lines[counter] != "Princes Street"
+    counter += 1
+end
+purts lines[counter]
+puts lines.slice(4)
+puts lines.fetch(4)
 
 
 # 4. Work out the index position of 'Haymarket'
@@ -28,6 +44,8 @@ end
 # or after finding the index function...
 lines.index('Haymarket')
 
+puts lines.include?("Hay")
+
 # 5. Add 'Airport' to the start of the array
   lines.unshift("Airport")
 puts lines
@@ -35,6 +53,8 @@ puts lines
 # 6. Add 'York Place' to the end of the array
 lines << 'York Place'
 puts lines 
+
+puts lines.push("York Place")
 
 # # 7. Remove 'Edinburgh Park' from the array using it's name
 # lines.delete('Edinburgh Park')
@@ -69,6 +89,11 @@ puts my_hash['two']
 # 4. How would you add `{3 => "Three"}` to the hash?
 my_hash[3] = "Three"
 puts my_hash
+
+# my_hash.merge!({3 => 'Three'})
+# my_hash.store(3, 'Three')
+
+
 # 5. How would you add `{:four => 4}` to the hash?
 my_hash[:four] = 4
 puts my_hash
@@ -119,6 +144,9 @@ puts users['Erik'][:favourite_numbers]
 # 4. Return the type of Avril's pet Colin
 puts users["Avril"][:pets]["colin"]
 
+# or
+puts users['Avril'][:pets].values[0]
+
 # 5. Return the smallest of Erik's favorite numbers
 puts users["Erik"][:favourite_numbers].sort[0]
 # or
@@ -132,9 +160,13 @@ for x in users["Erik"][:favourite_numbers]
 end
 puts eriks_smallest
 
+puts puts users["Erik"][:favourite_numbers].min 
+
 # 6. Add the number `7` to Erik's favorite numbers
 users["Erik"][:favourite_numbers] << 7
 puts users["Erik"][:favourite_numbers]
+
+# alternatives .push .unshift to insert at start  .insert(1,7)
 
 # 7. Change Erik's hometown to Edinburgh
 users['Erik'][:home_town] = "Edinburgh"
@@ -142,6 +174,8 @@ puts  users['Erik'][:home_town]
 
 # 8. Add a pet dog to Erik called "Fluffy"
 users['Erik'][:pets]['Fluffy'] = :dog
+
+# users['Erik'][:pets].merge!({"Fluffy" => :dog})
 
 # 9. Add yourself to the users hash
 users['Douglas'] = {
@@ -152,6 +186,17 @@ users['Douglas'] = {
       'Fitz' => :cat
   }
 }
+
+# alternate form users.store("Chris", {:twitter => "cbrown"})
+# or  {twitter: drcrooke} format
+me = {
+  "Graeme" => {
+    twitter: 'graeme'
+    home_town: "Edinburgh"
+  }
+}
+
+puts user.merge!(me)
 
 puts users['Douglas'][:home_town]
 puts users['Douglas'][:favourite_numbers][2]
